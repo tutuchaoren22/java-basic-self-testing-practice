@@ -6,6 +6,7 @@ public class MyStack {
     private int capacity;
     private int count;
     private static final int GROW_FACTOR = 2;
+    private int value;
 
     public MyStack(int initialCapacity) {
         if (initialCapacity < 1) {
@@ -21,45 +22,37 @@ public class MyStack {
         if (count == capacity) {
             ensureCapacity();
         }
-
-        // TODO: Please push the value into the storage here.
-        // <--start
-
-        // --end-->
+        storage[count] = value;
+        count++;
     }
 
     private void ensureCapacity() {
         int newCapacity = capacity * GROW_FACTOR;
-
-        // TODO:
-        //  Please create a new array of size newCapacity. Copy the original values into The new
-        //  array, and update related fields.
-        //  IMPORTANT: You SHOULD NOT USE COLLECTIONS (such as List<T>) OTHER THAN ARRAY.
-        //
-        // <--start
-
-        // --end-->
+        int[] newStorage = new int[newCapacity];
+        for (int i = 0; i < storage.length; i++) {
+            newStorage[i] = storage[i];
+        }
+        capacity = newCapacity;
+        storage = newStorage;
     }
 
     public int[] popToArray() {
         final int totalItemsCount = count;
         int[] array = new int[totalItemsCount];
-
         while (count > 0) {
             array[totalItemsCount - count] = pop();
         }
-
         return array;
     }
 
     private int pop() {
-        // TODO:
-        //  Please pop one element from the array. You should update the `count` field
-        //  as well.
-        // <--start
-
-        // --end-->
-
-        throw new UnsupportedOperationException("Stack is empty.");
+        if (count >= 0) {
+            int popValue = storage[count - 1];
+            storage[count - 1] = 0;
+            count--;
+            return popValue;
+        } else {
+            throw new UnsupportedOperationException("Stack is empty.");
+        }
     }
 }
