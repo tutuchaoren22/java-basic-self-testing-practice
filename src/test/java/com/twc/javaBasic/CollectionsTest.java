@@ -2,12 +2,7 @@ package com.twc.javaBasic;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
@@ -20,27 +15,17 @@ class CollectionsTest {
         collection.add("World");
         collection.add("!");
         Iterator<String> iterator = collection.iterator();
-
-        // Hint: You should implement createList() in this class.
         assertIterableEquals(Arrays.asList("Hello", "World", "!"), createList(iterator));
     }
 
     @SuppressWarnings({"unused", "UnnecessaryLocalVariable"})
     private static List<String> createList(Iterator<String> iterator) {
         List<String> list = new ArrayList<>();
-
-        // TODO:
-        //  This function will create a list from an iterator. You could ONLY use
-        //  `Iterator.hasNext` and `Iterator.next` API to copy items to a `List`.
-        //  No `for` is allowed.
-        //
-        // <--start
-
-        // --end-->
-
+        while (iterator.hasNext()) {
+            list.add(iterator.next());
+        }
         return list;
     }
-
 
 
     @Test
@@ -56,14 +41,7 @@ class CollectionsTest {
         iterator.add("Juliet");
         iterator.previous();
         iterator.remove();
-
-        // TODO:
-        //  Please write your answer directly.
-        //
-        // <--start
-        final List<String> expected = null;
-        // --end-->
-
+        final List<String> expected = new LinkedList(Arrays.asList("Amy", "Bob", "Carl"));
         assertIterableEquals(expected, staff);
     }
 
@@ -77,12 +55,7 @@ class CollectionsTest {
         List<Integer> subList = integers.subList(3, 10);
         subList.clear();
 
-        // TODO:
-        //  Please write down your answer directly.
-        //
-        // <--start
-        final List<Integer> expected = null;
-        // --end-->
+        final List<Integer> expected = new ArrayList<>(Arrays.asList(0, 1, 2, 10, 11));
 
         assertIterableEquals(expected, integers);
     }
