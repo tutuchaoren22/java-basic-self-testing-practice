@@ -12,13 +12,7 @@ class StringTest {
     void should_be_immutable() {
         String originalString = "The original string";
         String modifiedString = originalString.replace("original", "new");
-
-        // TODO:
-        //  Please modify the following line to pass the test. It is really easy to pass
-        //  the test. But you have to tell why.
-        // <--start
-        final boolean areSame = true;
-        // --end-->
+        final boolean areSame = false;
 
         assertEquals("The new string", modifiedString);
         assertEquals(areSame, originalString == modifiedString);
@@ -30,13 +24,7 @@ class StringTest {
         String originalString = "The string with tailing space.     ";
         String modifiedString = originalString.trim();
 
-        // TODO:
-        //  Please modify the following line to pass the test. It is really easy to pass
-        //  the test. But you have to tell why.
-        // <--start
-        final boolean areSame = true;
-        // --end-->
-
+        final boolean areSame = false;
         assertEquals("The string with tailing space.", modifiedString);
         assertEquals(areSame, originalString == modifiedString);
     }
@@ -48,13 +36,7 @@ class StringTest {
         String copyOfOriginalString = originalString;
         originalString += "Part two.";
 
-        // TODO:
-        //  Please modify the following line to pass the test. It is really easy to pass
-        //  the test. But you have to tell why.
-        // <--start
-        final boolean areSame = true;
-        // --end-->
-
+        final boolean areSame = false;
         assertEquals("Part one. Part two.", originalString);
         assertEquals(areSame, originalString == copyOfOriginalString);
     }
@@ -65,12 +47,9 @@ class StringTest {
     void should_break_string_into_words() {
         final String sentence = "This is Mike";
 
-        // TODO: Extract words in the sentence.
-        // <--Start
-        String[] words = null;
-        // --End-->
+        String[] words = sentence.split(" ");
 
-        assertArrayEquals(new String[] {"This", "is", "Mike"}, words);
+        assertArrayEquals(new String[]{"This", "is", "Mike"}, words);
     }
 
 }
