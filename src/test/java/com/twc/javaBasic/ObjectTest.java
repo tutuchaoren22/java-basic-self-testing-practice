@@ -1,12 +1,11 @@
 package com.twc.javaBasic;
 
-import com.twc.javaBasic.util.*;
+import com.twc.javaBasic.util.FieldNotExplicitlyInitialized;
+import com.twc.javaBasic.util.SimpleObjectWithInternalState;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ObjectTest {
@@ -23,16 +22,15 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 172 of "Core Java Vol 1", section 4.6.2.
         // <--start
-        final String expectedName = "expected";
-        final int expectedYearOfBirth = Integer.MAX_VALUE;
-        final LocalDate expectedRegisteredDate = LocalDate.now();
+        final String expectedName = null;
+        final int expectedYearOfBirth = 0;
+        final LocalDate expectedRegisteredDate = null;
         // --end-->
 
         assertEquals(expectedName, instance.getName());
         assertEquals(expectedYearOfBirth, instance.getYearOfBirth());
         assertEquals(expectedRegisteredDate, instance.getRegisteredDate());
     }
-
 
 
     @SuppressWarnings({"UnnecessaryLocalVariable", "unused"})
@@ -48,7 +46,7 @@ class ObjectTest {
         //  `sameReference` and `instanceCreatedByMethod`.
         //
         // <--start
-        final Object expected = new Object();
+        final Object expected = sameReference;
         // --end-->
 
         assertEquals(expected, objectReference);
@@ -66,7 +64,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 164 of "Core Java Vol 1", section 4.5.
         // <--start
-        final String expected = "";
+        final String expected = "Updated Name";
         // --end-->
 
         assertEquals(expected, instance.getName());
